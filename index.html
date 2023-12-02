@@ -5,18 +5,21 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Trang chủ</title>
+    <script src="https://fontawesome.com/icons/"></script>
     <script src="https://kit.fontawesome.com/d717109192.js" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js" defer></script>
     <script src="scripts/slideshow.js" defer></script>
     <script src="data/index_products.js" defer></script>
-    <script src="scripts/user.js" defer></script>
+    <!-- <script src="scripts/user.js" defer></script> -->
     <script src="scripts/index.js" defer></script>
     <script src="scripts/cart.js" defer></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.css"/>
     <link rel="stylesheet" href="styles/shared.css"/>
     <link rel="stylesheet" href="styles/cart.css">
     <link rel="stylesheet" href="styles/styles.css" />
-    
+    <link rel="stylesheet" href="styles/login.css">
+    <script src="data/adminAccount.js"></script>
+    <script src="scripts/user.js"></script> 
   </head>
   <body>
     <header>
@@ -27,8 +30,14 @@
           <div class="box"></div>
         </div>
         <div class="user-menu">
-          <div class="user">
-            <a href="login.html">Đăng nhập</a>
+          <div class="userBTN">
+            <div class="user login">
+              <button class="btnLogin-popup" id="btnLogin">Đăng Nhập</button>
+            </div>
+            <div class="user logout">
+               <h2 id="logout"></h2>
+              <button class="btnLogout-popup" id="btnLogout" onclick="logout()">Đăng Xuất</button>
+            </div>
           </div>
           <div class="fav">
             <a href="#"><i class="fa-regular fa-heart"></i></a>
@@ -184,5 +193,62 @@
         </div>
       </div>
     </footer>
+    <!-- đăng nhập -->
+    <div class="wrapper">
+      <div class="form-box login">
+        <span class="icon-closelog"><i class="fa-solid fa-xmark"></i></span>
+          <h2>Đăng Nhập</h2>
+          <form onsubmit="login()">
+            <div class="input-box1">
+              <input id="username" type="text"> 
+              <label>Tên Đăng Nhập</label>
+            </div>
+            <div class="input-box1">
+              <input id="password" type="password"> 
+              <label>Mật Khẩu</label>
+            </div>
+            <button type="submit" class="btn login">Đăng Nhập</button>
+            <div class="login-register">
+              <p>Chưa có tài khoản?</p> <a href="#" class="register-link">Đăng Ký</a>
+            </div>
+          </form>
+      </div>
+      <div class="form-box register">
+        <span class="icon-closereg"><i class="fa-solid fa-xmark"></i></span>
+          <h2>Đăng Ký</h2>
+          <form onsubmit="signUp()">
+            <div class="input-box1">
+              <input id="nameSignUp" type="text"> 
+              <label>Tên Tài Khoản</label>
+              <div id="nameerror">Bạn chưa nhập tên tài khoản</div>
+            </div>
+            <div class="input-box1">
+              <input id="usernameSignUp" type="text"> 
+              <label>Tên Đăng Nhập</label>
+              <div id="usernameerror">Bạn chưa nhập tên đăng nhập</div>
+            </div>
+            <div class="input-box1">
+              <input id="emailSignUp" type="email"> 
+              <label>Email</label>
+              <div id="emailerror"></div>
+            </div>
+            <div class="input-box1">
+              <input id="passwordSignUp" type="password"> 
+              <label>Mật Khẩu</label>
+              <div  id="passworderror">Bạn chưa nhập mật khẩu</div>
+            </div>
+            <div class="input-box1">
+              <input id="confirm_password" type="password"> 
+              <label>Xác Nhận Mật Khẩu</label>
+              <div id="confirmerror">Mật khẩu không trùng khớp</div>
+            </div>
+            <button type="submit" class="btn logout">Đăng Ký</button>
+            <div class="login-register">
+              <p>Đã có tài khoản?</p> <a href="#" class="login-link">Đăng Nhập</a>
+            </div>
+          </form>
+      </div>
+    </div>
+    <script src="scripts/login.js"></script>
   </body>
 </html>
